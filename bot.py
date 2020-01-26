@@ -1,9 +1,10 @@
 import telebot
-import config
+import os
  
 from telebot import types
- 
-bot = telebot.TeleBot(config.TOKEN)
+
+TOKEN = os.environ.get('serge_kretov_tel_bot') #bot token from @botFather in config vars on heroku.com
+bot = telebot.TeleBot(TOKEN)
  
 @bot.message_handler(commands=['start'])
 def welcome(message):
