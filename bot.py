@@ -17,7 +17,11 @@ def message_handler(bot:Bot, update:Update):
         name = 'аноним'
 
     text = update.effective_message.text
-    reply_text = f'Привет, {name}!\n\n{text}'
+    if text == '/start':
+        txt1 = 'Я виртуальный помощник Сергея из Юридического агентства ПРИОРИТЕТ.'
+        reply_text = f'Привет, {name}!\n\n{txt1}'
+    else:
+        reply_text = f'Привет, {name}!\n\n{text} - данная команда мне не известна 😔 введи /start для получения полного списка команд.'
 
     bot.send_message(
         chat_id=update.effective_message.chat_id,
