@@ -8,8 +8,8 @@ bot = telebot.TeleBot(config.TOKEN)
  
 @bot.message_handler(commands=['start'])
 def welcome(message):
-    sti = open('static/welcome.webp', 'rb')
-    bot.send_sticker(message.chat.id, sti)
+    #sti = open('static/welcome.webp', 'rb')
+    #bot.send_sticker(message.chat.id, sti)
  
     # keyboard
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -25,7 +25,7 @@ def welcome(message):
 def lalala(message):
     if message.chat.type == 'private':
         if message.text == '🎲 Рандомное число':
-            bot.send_message(message.chat.id, str(random.randint(0,100)))
+            bot.send_message(message.chat.id, 'rnd!!!')
         elif message.text == '😊 Как дела?':
  
             markup = types.InlineKeyboardMarkup(row_width=2)

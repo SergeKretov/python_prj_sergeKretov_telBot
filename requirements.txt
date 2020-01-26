@@ -1,6 +1,2 @@
-aiohttp
-websockets
-chardet
 telebot
-random
 config.py
