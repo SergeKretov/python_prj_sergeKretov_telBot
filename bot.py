@@ -34,7 +34,7 @@ def main():
     handler = MessageHandler(Filters.all, message_handler)
     updater.dispatcher.add_handler(handler)
 
-    Updater.start_polling()
+    updater.start_polling()
     updater.idle()
 
 if __name__ == "__main__":
