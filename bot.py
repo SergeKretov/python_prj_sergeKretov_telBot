@@ -6,9 +6,8 @@ from telegram.ext import MessageHandler
 from telegram.ext import Filters
 import os
 
-#TOKEN = os.environ.get('serge_kretov_tel_bot') #bot token from @botFather in config vars on heroku.com
+TOKEN = os.environ.get('serge_kretov_tel_bot') #bot token from @botFather in config vars on heroku.com
 
-TOKEN = '862029754:AAFEch9ivNBD7i82E0TsS0DWhGw0DO0GM8c'
 
 def message_handler(bot:Bot, update:Update):
     user = update.effective_user
