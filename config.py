@@ -1,1 +1,3 @@
-TOKEN = '862029754:AAFEch9ivNBD7i82E0TsS0DWhGw0DO0GM8c' #bot token from @botFather
+import os
+
+TOKEN = os.environ.get('serge_kretov_tel_bot') #bot token from @botFather in config vars on heroku.com
