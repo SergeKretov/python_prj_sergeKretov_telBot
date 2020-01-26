@@ -1,1 +1,4 @@
-telebot
+discord.py
+aiohttp
+websockets
+chardet
