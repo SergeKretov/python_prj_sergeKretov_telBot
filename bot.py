@@ -1,20 +1,40 @@
-import discord
+#Must be installed python-telegram-bot lib.
+from telegram import Bot
+from telegram import Update
+from telegram.ext import Updater
+from telegram.ext import MessageHandler
+from telegram.ext import Filters
 import os
- 
-from discord.ext import commands
 
 TOKEN = os.environ.get('serge_kretov_tel_bot') #bot token from @botFather in config vars on heroku.com
 
-Bot = commands.Bot(command_prefix = "!")
-Bot.remove_command('help')
+def message_handler(bot:Bot, update:Update):
+    user = update.effective_user
+    if user:
+        name = user.first_name
+    else:
+        name = 'аноним'
 
-@Bot.event
-async def on_ready():
-    print("Bot is online")
+    text = update.effective_message.text
+    reply_text = f'Привет, {name}!\n\n{text}'
 
-@Bot.command
-async def ping():
-    await Bot.say("Pong")
- 
-# RUN
-Bot.run(str(TOKEN))
+    bot.send_message(
+        chat_id=update.effective_message.chat_id,
+        text=reply_text,
+    )
+
+def main():
+    bot = Bot(token=TOKEN,
+    )
+    updater = Updater(bot=bot,
+    )
+    
+    handler = MessageHandler(Filters.all, message_handler)
+    updater.dispatcher.add_handler(handler)
+
+    Updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
+
